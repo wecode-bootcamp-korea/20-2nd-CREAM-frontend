@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
+import { userContext } from '../../store/Store';
 import styled from 'styled-components';
 import TypeBox from './TypeBox';
 import ProductInfo from '../../components/ProductInfo';
@@ -6,6 +7,9 @@ import MainTopBanner from '../../pages/Main/MainTopBanner/Maintopbanner';
 import API_URLS from '../../config';
 
 export default function Main(props) {
+  const context = useContext(userContext);
+  console.log(context);
+
   const [SortListState, setSortListState] = useState(false);
   // 백엔드에서 상품리스트 데이터를 받아와서 저장하는 배열 state
   const [productList, setproductList] = useState([]);
